@@ -1,9 +1,9 @@
 from cursedengine.engine import Game
-from things import Icon
+import things
 from curses import wrapper
 def main(stdscr):
     game = Game(
-        Icon(),
+        things.Icon(),
         window = stdscr
     )
     game.start()
