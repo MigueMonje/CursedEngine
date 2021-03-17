@@ -3,13 +3,6 @@ from .visuals import AsciiArt
 import curses
 import time
 
-class DtTracker():
-    @classmethod
-    def start(cls):
-        cls._t = time.time()*1000
-    @classmethod
-    def stop(cls):
-        return time.time() *1000 - cls._t
 class Thing():
     def __init__(self):
         pass
@@ -17,7 +10,7 @@ class Thing():
     def start(self,game):
         pass
 
-    def update(self,dt,game):
+    def update(self,game):
         pass
 
     def render(self,stdscr):
@@ -82,12 +75,11 @@ class Game:
             else:
                 TypeError(f"{thing} is a {str(type(thing))}, not a Thing.")
     def loop(self):
-        DtTracker.start()
         while True:
             self.window.clear()
             for thing in self.things:
                 if isinstance(thing,Thing):
-                    thing.update(DtTracker.stop(),self)
+                    thing.update(self)
                     
                     thing.render(self.window)
                     
