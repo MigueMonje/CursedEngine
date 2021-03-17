@@ -43,13 +43,13 @@ class ArtThing(SpacialThing):
             for i in range(len(self.art.lines)):
                 stdscr.addstr(self.cords.y + i,self.cords.x,self.art.lines[i])
 
-class CharThing(SpacialThing):
-    char:str = ""
-    def __init__(self,cords:Vector2,char):
+class TextThing(SpacialThing):
+    txt:str = ""
+    def __init__(self,cords:Vector2,txt):
         super().__init__(cords)
-        self.char = char
+        self.txt = txt
     def render(self,stdscr):
-        stdscr.addstr(self.cords.y,self.cords.x,self.char)
+        stdscr.addstr(self.cords.y,self.cords.x,self.txt)
 
 class RectThing(SpacialThing):
     char:str = ""
