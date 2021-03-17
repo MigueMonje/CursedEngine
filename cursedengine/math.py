@@ -1,3 +1,6 @@
+"""
+    2D Vector.
+"""
 class Vector2:
     x,y = None,None
     

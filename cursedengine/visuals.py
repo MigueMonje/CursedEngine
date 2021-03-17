@@ -1,5 +1,9 @@
 from .math import Vector2
 
+
+"""
+    Class for handling ascii art.
+"""
 class AsciiArt:
     Fixed = False
     def fix(self):
