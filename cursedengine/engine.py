@@ -3,6 +3,9 @@ from .visuals import AsciiArt
 import curses
 import time
 
+"""
+    Base class for all the things.
+"""
 class Thing():
     def __init__(self):
         pass
@@ -21,11 +24,20 @@ class Thing():
     def __repr__(self):
         return repr(self.__dict__)
 
+
+
+"""
+    Thing with a position in space.
+"""
 class SpacialThing(Thing):
     cords:Vector2 = Vector2(0,0)
     def __init__(self,cords:Vector2):
         self.cords = cords
 
+
+"""
+    Thing displayed as a Asccii Art.
+"""
 class ArtThing(SpacialThing):
     art:AsciiArt = None
     def __init__(self,cords:Vector2,art:AsciiArt):
@@ -43,6 +55,9 @@ class ArtThing(SpacialThing):
             for i in range(len(self.art.lines)):
                 stdscr.addstr(self.cords.y + i,self.cords.x,self.art.lines[i])
 
+"""
+    Thing displayed as a single line of text.
+"""
 class TextThing(SpacialThing):
     txt:str = ""
     def __init__(self,cords:Vector2,txt):
@@ -51,6 +66,9 @@ class TextThing(SpacialThing):
     def render(self,stdscr):
         stdscr.addstr(self.cords.y,self.cords.x,self.txt)
 
+"""
+    Thing displayed as a rectangle of characters.
+"""
 class RectThing(SpacialThing):
     char:str = ""
     def __init__(self,cords:Vector2,dim:Vector2,char):
@@ -62,6 +80,9 @@ class RectThing(SpacialThing):
             stdscr.addstr(y,self.cords.x,self.char * self.dim.x)
 
 
+"""
+    Executes the main game loop and contains all the things.
+"""
 class Game:
     end = False
     key = None
