@@ -29,7 +29,7 @@ class Vector2:
             return Vector2(self.x * other, self.y * other)
         
     def __str__(self):
-        return f"[{self.x} {self.y}]"
+        return f"Vector2({self.x},{self.y})"
 
     def __repr__(self):
         return f"Vector2({self.x},{self.y})"
