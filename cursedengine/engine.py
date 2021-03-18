@@ -117,7 +117,7 @@ class Game:
             self.window.refresh()
             if self.end:
                 break
-            if self.auto:
+            if not self.auto:
                 self.key = self.window.getkey()
             else:
                 self.key = "AUTO"
