@@ -79,6 +79,9 @@ class RectThing(SpacialThing):
         for y in range(self.cords.y, self.cords.y + self.dim.y):
             stdscr.addstr(y,self.cords.x,self.char * self.dim.x)
 
+class Cursor(SpacialThing):
+    def render(self,stdscr):
+        stdscr.move(self.cords.y,self.cords.x)
 
 """
     Executes the main game loop and contains all the things.
