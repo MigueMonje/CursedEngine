@@ -18,7 +18,9 @@ class Vector2:
             return Vector2(self.x - other.x, self.y - other.y)
         if type(other) in (int,float):
             return Vector2(self.x - other, self.y - other)
-    def between(self,a:Vector2,b:Vector2):
+    def between(self,a,b):
+        if not Vector2 in (type(a),type(b)):
+            TypeError("Arguments must be Vector2.")
         return (self.x > a.x) and (self.y > a.y) and (self.x < b.x) and (self.y < b.y)
 
     def __neg__(self):
