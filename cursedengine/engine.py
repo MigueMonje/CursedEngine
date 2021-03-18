@@ -21,9 +21,9 @@ class Thing():
         pass
 
     def __str__(self):
-        return str(self.__dict__)
+        return f"{type(self).__name__} {self.__dict__}"
     def __repr__(self):
-        return repr(self.__dict__)
+        return f"{type(self).__name__}{self.__dict__}"
 
 
 
