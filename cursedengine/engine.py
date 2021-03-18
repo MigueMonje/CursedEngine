@@ -1,5 +1,6 @@
 from .math import Vector2
 from .visuals import AsciiArt
+from time import sleep
 import curses
 import time
 
@@ -90,6 +91,8 @@ class Game:
     end = False
     key = None
     curses = None
+    auto = False
+    inter = 100
     def __init__(self,*things,window,curses):
         self.things = list(things)
         self.window = window
@@ -114,6 +117,9 @@ class Game:
             self.window.refresh()
             if self.end:
                 break
-            
-            self.key = self.window.getkey()
+            if self.auto:
+                self.key = self.window.getkey()
+            else:
+                self.key = "AUTO"
+                sleep(self.inter/1000)
                 
