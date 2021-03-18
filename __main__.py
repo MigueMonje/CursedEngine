@@ -7,7 +7,7 @@ def main(stdscr):
         things.Icon(),
         Cursor(Vector2(0,0)),
         window = stdscr,
-        curses= curses
+        curses = curses
     )
     game.start()
     game.loop()
