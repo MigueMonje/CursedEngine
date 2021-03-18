@@ -23,7 +23,7 @@ class Thing():
     def __str__(self):
         return f"{type(self).__name__} {self.__dict__}"
     def __repr__(self):
-        return f"{type(self).__name__}{self.__dict__}"
+        return f"{type(self).__name__} {self.__dict__}"
 
 
 
