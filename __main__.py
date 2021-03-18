@@ -1,13 +1,14 @@
 from cursedengine.engine import Game, Cursor
 from cursedengine.math import Vector2
 import things
-from curses import wrapper
+import curses
 def main(stdscr):
     game = Game(
         things.Icon(),
         Cursor(Vector2(0,0)),
-        window = stdscr
+        window = stdscr,
+        curses= curses
     )
     game.start()
     game.loop()
-wrapper(main)
+curses.wrapper(main)

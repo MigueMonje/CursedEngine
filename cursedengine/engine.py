@@ -89,9 +89,11 @@ class Cursor(SpacialThing):
 class Game:
     end = False
     key = None
-    def __init__(self,*things,window):
+    curses = None
+    def __init__(self,*things,window,curses):
         self.things = list(things)
         self.window = window
+        self.curses = curses
     def start(self):
         for thing in self.things:
             if isinstance(thing,Thing):
